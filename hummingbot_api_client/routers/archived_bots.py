@@ -97,3 +97,12 @@ class ArchivedBotsRouter(BaseRouter):
                 print(f"Config: {controller['controller_config']}")
         """
         return await self._get(f"/archived-bots/{db_path}/controllers")
+
+    async def delete_archived_bot(self, db_path: str) -> Dict[str, Any]:
+        """
+        Delete an archived bot and its entire directory.
+
+        Args:
+            db_path: Path to the database file as returned by list_databases
+        """
+        return await self._delete(f"/archived-bots/{db_path}")

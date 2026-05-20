@@ -244,7 +244,7 @@ class BotOrchestrationRouter(BaseRouter):
         if end_time is not None:
             params["end_time"] = end_time
 
-        return await self._get("/bot-orchestration/controller-performance/history", params=params)
+        return await self._get("/bot-orchestration/controller-performance-history", params=params)
 
     async def get_latest_controller_performance(
             self,
@@ -259,7 +259,7 @@ class BotOrchestrationRouter(BaseRouter):
         params = {}
         if bot_name is not None:
             params["bot_name"] = bot_name
-        return await self._get("/bot-orchestration/controller-performance/latest", params=params)
+        return await self._get("/bot-orchestration/controller-performance-latest", params=params)
 
     # Bot Runs
     async def get_bot_runs(
