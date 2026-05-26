@@ -304,3 +304,12 @@ class BotOrchestrationRouter(BaseRouter):
             params["deployment_status"] = deployment_status
 
         return await self._get("/bot-orchestration/bot-runs", params=params)
+
+    async def delete_bot_run(self, bot_run_id: int) -> Dict[str, Any]:
+        """
+        Delete a bot run record by ID.
+
+        Args:
+            bot_run_id: ID of the bot run to delete
+        """
+        return await self._delete(f"/bot-orchestration/bot-runs/{bot_run_id}")
